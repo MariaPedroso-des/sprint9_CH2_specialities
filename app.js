@@ -1,16 +1,19 @@
+
+//*CRUD*//
+// post -> crear x CREATE
+// get -> traer x READ
+// put -> cambiar todo
+// patch -> cambiar x (se usa poco)
+// delete -> eliminar x DELETE
+
 const express = require('express')
 const app = express()
-const PORT = 3000
+const PORT = 3001
 const usersData = require('./data.js')
 
 function filtrarUsers(specialty) {
   return usersData.filter(user => user.specialty === specialty)
 }
-
-    // <a href="/ventas">ventas </a>
-    // <a href="/marketing"> marketing </a>
-    // <a href="/desarrolladores"> desarrolladores </a>
-    // <a href="/QAs"> QAs</a>
 
 function pageEspecialidad(nombreEspecialidad, usuarios) {
   return `
@@ -82,6 +85,6 @@ app.use((req, res) => {
     `)
 })
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
   console.log( `Servidor escuchando desde http://localhost:${PORT}`)
 })
